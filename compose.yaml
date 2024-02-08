@@ -1,0 +1,25 @@
+version: "3.2"
+
+services:
+  db:
+    container_name: banco_de_dados2
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+      MYSQL_DATABASE: meet_indexer
+    ports:
+      - "3306:3306"
+  python:
+    depends_on:
+      - db
+    container_name: python
+    build:
+      context: .
+    image: python:latest
+    volumes:
+      - ./videos:/usr/src/app/videos
+      - ./main.py:/usr/src/app/main.py
+      - ./requirements.txt:/usr/src/app/requirements.txt
+      - ./transcribe.py:/usr/src/app/transcribe.py
+      - ./src:/usr/src/app/src

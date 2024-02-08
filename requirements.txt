@@ -1,0 +1,5 @@
+boto3==1.26.146
+moviepy==1.0.3
+mysql-connector-python==8.2.0
+ffmpeg-python==0.2.0
+openai-whisper==20231117
