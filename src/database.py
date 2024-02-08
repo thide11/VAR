@@ -41,7 +41,7 @@ class Database:
     def search_transcriptions(self, search : str):
         print(search)
         cursor = self.connect();
-        query = f"SELECT id, meets_id, transcription, start_time FROM transcription WHERE transcription LIKE '%{search}%'"
+        query = f"SELECT transcription.id, meets_id, transcription, start_time, video_url FROM transcription INNER JOIN meets ON meets.id = transcription.meets_id WHERE transcription LIKE '%{search}%'"
 
         cursor.execute(query)
 

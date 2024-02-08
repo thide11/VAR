@@ -27,16 +27,10 @@ class S3:
     )
     
   def upload_file(self, file_path : str, s3_path : str):
-
-    # video = open(file_path, 'rb')
-
     response = self.client.upload_file(
       file_path,
       self.bucket,
       s3_path,
-      # ACL="public-read",
-      # Key=s3_path,
-      # Body=video
     )
     print(response)
     return response != None
@@ -44,12 +38,9 @@ class S3:
   def file_exists(self, file_path : str):
     try:
       self.client.get_object(
-          Bucket='meet-indexer',
+          Bucket=self.bucket,
           Key=file_path,
       )
       return True
     except self.client.exceptions.NoSuchKey:
         return False
-
-# for bucket in client.list_buckets()["Buckets"]:
-#     print(bucket)
