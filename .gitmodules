@@ -1,0 +1,3 @@
+[submodule "backend"]
+	path = backend
+	url = https://creator4all@dev.azure.com/creator4all/VAR/_git/VAR-backend

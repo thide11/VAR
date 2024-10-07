@@ -4,7 +4,7 @@ services:
   db:
     container_name: banco_de_dados2
     image: mysql:latest
-    command: --default-authentication-plugin=mysql_native_password
+    # command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: yes
       MYSQL_DATABASE: meet_indexer

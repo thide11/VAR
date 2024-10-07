@@ -2,4 +2,3 @@ backend/**
 .aws
 __pycache__
 videos/**
-frontend/dist
